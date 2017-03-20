@@ -79,17 +79,19 @@ namespace ProyectoTiempos.Vistas
                 MessageBox.Show(this.sorteo.errorDescription);
 
             }
+            
             refrecar();
         }
 
         public void refrecar()
         {
             cbSorteo.Items.Clear();
-            cargarCombo();
+           
             cbSorteo.SelectedIndex = -1;
             cbPrimero.SelectedIndex = -1;
             cbTercero.SelectedIndex = -1;
             cbSegundo.SelectedIndex = -1;
+            cargarCombo();
         }
 
             }
