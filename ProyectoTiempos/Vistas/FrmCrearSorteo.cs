@@ -121,11 +121,20 @@ namespace ProyectoTiempos.Vistas
         }
         private Boolean ValidarCampos()
         {
-            if (string.IsNullOrEmpty(lblSerial.Text) && string.IsNullOrEmpty(txtDescripcion.Text) && dtHora.Value.CompareTo(DateTime.Now) == 1)
+            if (dtHora.Value.CompareTo(DateTime.Now) == -1)
             {
-                MessageBox.Show("Todos los campos no estan llenos");
+                MessageBox.Show("Fecha Invalida");
                 return false;
+
+            }else
+            {
+                if (string.IsNullOrEmpty(lblSerial.Text) || string.IsNullOrEmpty(txtDescripcion.Text))
+                {
+                    MessageBox.Show("Todos los campos no estan llenos");
+                    return false;
+                }
             }
+            
 
 
             return true;

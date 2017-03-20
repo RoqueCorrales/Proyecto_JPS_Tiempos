@@ -31,9 +31,6 @@ namespace ProyectoTiempos.Vistas
 
         private void btnNotificar_Click(object sender, EventArgs e)
         {
-                notificacion.enviarCorreo(textBox1.Text, textBox2.Text, Convert.ToDouble(textBox3.Text), Convert.ToInt32(textBox4.Text));
-                
-            
             
 
         }
