@@ -45,6 +45,7 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.lblJugador = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.timerValidacion = new System.Windows.Forms.Timer(this.components);
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -167,6 +168,12 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // timerValidacion
+            // 
+            this.timerValidacion.Enabled = true;
+            this.timerValidacion.Interval = 10000;
+            this.timerValidacion.Tick += new System.EventHandler(this.timerValidacion_Tick);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,6 +217,7 @@
         private System.Windows.Forms.ToolStripMenuItem crearSorteoToolStripMenuItem;
         private System.Windows.Forms.Label lblJugador;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timerValidacion;
     }
 }
 

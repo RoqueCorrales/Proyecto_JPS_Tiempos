@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGanadores));
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,37 +41,39 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(207, 46);
+            this.label1.Location = new System.Drawing.Point(155, 37);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 17);
+            this.label1.Size = new System.Drawing.Size(103, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "listas de Ganadores ";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 75);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(9, 61);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(577, 281);
+            this.dataGridView1.Size = new System.Drawing.Size(433, 228);
             this.dataGridView1.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 6);
+            this.label2.Location = new System.Drawing.Point(9, 5);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 17);
+            this.label2.Size = new System.Drawing.Size(89, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Codigo de Sorteo";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(319, 5);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Location = new System.Drawing.Point(239, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(56, 19);
             this.button1.TabIndex = 4;
             this.button1.Text = "Aceptar";
             this.button1.UseVisualStyleBackColor = true;
@@ -80,19 +83,19 @@
             // 
             this.cbSorteo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSorteo.FormattingEnabled = true;
-            this.cbSorteo.Location = new System.Drawing.Point(136, 2);
-            this.cbSorteo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbSorteo.Location = new System.Drawing.Point(102, 2);
+            this.cbSorteo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbSorteo.Name = "cbSorteo";
-            this.cbSorteo.Size = new System.Drawing.Size(163, 24);
+            this.cbSorteo.Size = new System.Drawing.Size(123, 21);
             this.cbSorteo.TabIndex = 5;
             this.cbSorteo.SelectedIndexChanged += new System.EventHandler(this.cbSorteo_SelectedIndexChanged);
             // 
             // btnNotificar
             // 
-            this.btnNotificar.Location = new System.Drawing.Point(239, 374);
-            this.btnNotificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNotificar.Location = new System.Drawing.Point(179, 304);
+            this.btnNotificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNotificar.Name = "btnNotificar";
-            this.btnNotificar.Size = new System.Drawing.Size(75, 23);
+            this.btnNotificar.Size = new System.Drawing.Size(56, 19);
             this.btnNotificar.TabIndex = 6;
             this.btnNotificar.Text = "Notificar";
             this.btnNotificar.UseVisualStyleBackColor = true;
@@ -100,16 +103,18 @@
             // 
             // FrmGanadores
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(611, 422);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(458, 343);
             this.Controls.Add(this.btnNotificar);
             this.Controls.Add(this.cbSorteo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmGanadores";
             this.Text = "FrmGanadores";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
