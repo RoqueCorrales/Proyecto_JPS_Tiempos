@@ -49,6 +49,7 @@
             // 
             // cbSorteo
             // 
+            this.cbSorteo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSorteo.FormattingEnabled = true;
             this.cbSorteo.Location = new System.Drawing.Point(32, 47);
             this.cbSorteo.Name = "cbSorteo";
@@ -92,6 +93,7 @@
             // 
             // cbNumero
             // 
+            this.cbNumero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNumero.FormattingEnabled = true;
             this.cbNumero.Items.AddRange(new object[] {
             "00",
