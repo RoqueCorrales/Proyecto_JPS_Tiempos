@@ -95,12 +95,12 @@
             // 
             // cbSorteo
             // 
+            this.cbSorteo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSorteo.FormattingEnabled = true;
             this.cbSorteo.Location = new System.Drawing.Point(207, 22);
             this.cbSorteo.Name = "cbSorteo";
             this.cbSorteo.Size = new System.Drawing.Size(121, 24);
             this.cbSorteo.TabIndex = 3;
-         
             // 
             // FrmVerSorteos
             // 

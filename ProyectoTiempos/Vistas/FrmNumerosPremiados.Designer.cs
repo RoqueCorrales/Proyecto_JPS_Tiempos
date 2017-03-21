@@ -97,6 +97,7 @@
             // 
             // cbSegundo
             // 
+            this.cbSegundo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSegundo.FormattingEnabled = true;
             this.cbSegundo.Items.AddRange(new object[] {
             "00",
@@ -203,6 +204,7 @@
             // 
             // cbTercero
             // 
+            this.cbTercero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTercero.FormattingEnabled = true;
             this.cbTercero.Items.AddRange(new object[] {
             "00",
@@ -309,6 +311,7 @@
             // 
             // cbPrimero
             // 
+            this.cbPrimero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPrimero.FormattingEnabled = true;
             this.cbPrimero.Items.AddRange(new object[] {
             "00",
