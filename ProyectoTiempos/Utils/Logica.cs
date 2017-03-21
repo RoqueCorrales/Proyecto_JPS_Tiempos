@@ -76,6 +76,7 @@ namespace ProyectoTiempos.Utils
             ComboBox combo = new ComboBox();
             todos= this.sorteo.SelectSorteosEstadoTrue();
             resultPremiados = this.sorPre.Select();
+
             if (this.sorteo.isError)
             {
                 this.isError = true;

@@ -27,9 +27,9 @@ namespace ProyectoTiempos.Vistas
             sorPre = new SorteoPremiado();
             sorteo = new Sorteo();
             log = new Logica();
-            refrecar();
+           refrecar();
            
-            //cbSorteo = log.cargarComboxSorteosNoPremiados();
+          // cbSorteo.DataSource = log.cargarComboxSorteosNoPremiados();
         }
 
         public ComboBox cargarCombo()
@@ -86,8 +86,8 @@ namespace ProyectoTiempos.Vistas
         public void refrecar()
         {
             cbSorteo.Items.Clear();
-           
-            cbSorteo.SelectedIndex = -1;
+
+            cbSorteo.Text = "";
             cbPrimero.SelectedIndex = -1;
             cbTercero.SelectedIndex = -1;
             cbSegundo.SelectedIndex = -1;

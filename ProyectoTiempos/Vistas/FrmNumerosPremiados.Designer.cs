@@ -415,6 +415,7 @@
             // 
             // cbSorteo
             // 
+            this.cbSorteo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSorteo.FormattingEnabled = true;
             this.cbSorteo.Location = new System.Drawing.Point(136, 6);
             this.cbSorteo.Name = "cbSorteo";
