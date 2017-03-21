@@ -18,7 +18,7 @@ namespace ProyectoTiempos.Vistas
         {
             InitializeComponent();
             casa = new Casa();
-
+            casaInicio();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -95,12 +95,15 @@ namespace ProyectoTiempos.Vistas
             {
                 MessageBox.Show("Dinero invalido");
             }
+        }
 
-
-
-
-
-
+        private void casaInicio()
+        {
+            DataTable tableCasa = casa.Select();
+            DataRow row = tableCasa.Rows[0];
+            int id = Convert.ToInt32(row["id"].ToString());
+            txtNombre.Text = (row["nombre"].ToString());
+            txtDinero.Text = (row["dinero"].ToString());
         }
     }
 }

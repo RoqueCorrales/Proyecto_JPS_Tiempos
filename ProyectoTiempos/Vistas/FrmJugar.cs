@@ -58,7 +58,8 @@ namespace ProyectoTiempos.Vistas
                 double monto = validarMonto();
                 apuesta.Insert(persona.id, id_sorteo, monto, numero);
                 modificacionCasa();
-                Vaciar();
+                txtMontoApuesta.Text ="";
+                cbNumero.SelectedIndex = -1;
                 MessageBox.Show("Apuesta Realizada");
             }
             else
@@ -103,7 +104,7 @@ namespace ProyectoTiempos.Vistas
             cbSorteo.SelectedIndex = -1;
             cbNumero.SelectedIndex = -1;
             txtMontoApuesta.Text = "";
-           // if (string.IsNullOrEmpty(txtMontoApuesta.ToString())) ;
+          
         }
 
 
