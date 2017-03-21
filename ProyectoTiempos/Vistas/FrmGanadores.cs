@@ -25,8 +25,8 @@ namespace ProyectoTiempos.Vistas
             sorPre = new SorteoPremiado();
             log = new Logica();
             sorteo = new Sorteo();
-            cargarCombo();
-            //cbSorteo = log.cargarCombo();
+            
+            cbSorteo.DataSource = log.cargarCombo();
         }
 
         private void btnNotificar_Click(object sender, EventArgs e)
@@ -41,25 +41,7 @@ namespace ProyectoTiempos.Vistas
         }
 
        
-           public ComboBox cargarCombo()
-        {
-            DataTable result = new DataTable();
-
-            result = this.sorPre.Select();
            
-            for (int i = 0; i < result.Rows.Count; i++)
-            {
-                cbSorteo.Items.Add(result.Rows[i]["codigo_sorteo"]);
-            }
-            if (this.sorteo.isError)
-            {
-                MessageBox.Show(this.sorteo.errorDescription);
-                
-            }
-
-            return cbSorteo;
-        }
-
         private void cbSorteo_SelectedIndexChanged(object sender, EventArgs e)
         {
 

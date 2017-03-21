@@ -27,42 +27,11 @@ namespace ProyectoTiempos.Vistas
             sorPre = new SorteoPremiado();
             sorteo = new Sorteo();
             log = new Logica();
-           refrecar();
-           
-          // cbSorteo.DataSource = log.cargarComboxSorteosNoPremiados();
+             refrecar();
+         
         }
 
-        public ComboBox cargarCombo()
-        {
-
-            DataTable todos = new DataTable();
-            DataTable resultPremiados = new DataTable();
-
-            todos = sorteo.SelectSorteosEstadoTrue();
-            resultPremiados = sorPre.Select();
-            List<string> lista = new List<string>();
-
-            for (int i = 0; i < todos.Rows.Count; i++)
-            {
-                string a = (todos.Rows[i]["codigo"]).ToString();
-                lista.Add(a);
-             }
-
-            for (int j = 0; j < resultPremiados.Rows.Count; j++)
-            {
-                string a = resultPremiados.Rows[j]["codigo_sorteo"].ToString();
-                if (lista.Contains(a))
-                {
-                    lista.Remove(a);
-                }
-            }
-            for (int i = 0; i < lista.Count; i++)
-            {
-                cbSorteo.Items.Add(lista[i]);
-            }
-
-            return cbSorteo;
-        }
+        
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -91,7 +60,7 @@ namespace ProyectoTiempos.Vistas
             cbPrimero.SelectedIndex = -1;
             cbTercero.SelectedIndex = -1;
             cbSegundo.SelectedIndex = -1;
-            cargarCombo();
+            cbSorteo.DataSource = log.cargarComboxSorteosNoPremiados();
         }
 
             }
