@@ -58,6 +58,7 @@ namespace ProyectoTiempos.Vistas
                 double monto = validarMonto();
                 apuesta.Insert(persona.id, id_sorteo, monto, numero);
                 modificacionCasa();
+                Vaciar();
                 MessageBox.Show("Apuesta Realizada");
             }
             else

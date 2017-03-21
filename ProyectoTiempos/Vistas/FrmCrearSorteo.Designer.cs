@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCrearSorteo));
             this.label1 = new System.Windows.Forms.Label();
             this.lblSerial = new System.Windows.Forms.Label();
             this.btnGenerar = new System.Windows.Forms.Button();
@@ -74,7 +75,7 @@
             // btnGenerar
             // 
             this.btnGenerar.Location = new System.Drawing.Point(266, 28);
-            this.btnGenerar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGenerar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(56, 19);
             this.btnGenerar.TabIndex = 3;
@@ -95,7 +96,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(168, 165);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(56, 19);
             this.btnAceptar.TabIndex = 5;
@@ -126,7 +127,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(120, 111);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(202, 20);
             this.txtDescripcion.TabIndex = 11;
@@ -135,7 +136,7 @@
             // 
             this.dtHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtHora.Location = new System.Drawing.Point(130, 72);
-            this.dtHora.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtHora.Margin = new System.Windows.Forms.Padding(2);
             this.dtHora.Name = "dtHora";
             this.dtHora.Size = new System.Drawing.Size(128, 20);
             this.dtHora.TabIndex = 12;
@@ -195,7 +196,7 @@
             this.panel1.Controls.Add(this.rbDeshabilitar);
             this.panel1.Controls.Add(this.rbHabilitar);
             this.panel1.Location = new System.Drawing.Point(369, 95);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(189, 30);
             this.panel1.TabIndex = 15;
@@ -204,7 +205,7 @@
             // 
             this.rbDeshabilitar.AutoSize = true;
             this.rbDeshabilitar.Location = new System.Drawing.Point(104, 11);
-            this.rbDeshabilitar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbDeshabilitar.Margin = new System.Windows.Forms.Padding(2);
             this.rbDeshabilitar.Name = "rbDeshabilitar";
             this.rbDeshabilitar.Size = new System.Drawing.Size(80, 17);
             this.rbDeshabilitar.TabIndex = 1;
@@ -216,7 +217,7 @@
             // 
             this.rbHabilitar.AutoSize = true;
             this.rbHabilitar.Location = new System.Drawing.Point(2, 11);
-            this.rbHabilitar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbHabilitar.Margin = new System.Windows.Forms.Padding(2);
             this.rbHabilitar.Name = "rbHabilitar";
             this.rbHabilitar.Size = new System.Drawing.Size(63, 17);
             this.rbHabilitar.TabIndex = 0;
@@ -238,6 +239,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(586, 478);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel1);
@@ -251,7 +254,7 @@
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.lblSerial);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmCrearSorteo";
             this.Text = "FrmHabilitar";
             ((System.ComponentModel.ISupportInitialize)(this.dtgSorteo)).EndInit();

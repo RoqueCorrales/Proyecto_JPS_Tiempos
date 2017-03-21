@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoTiempos.Vistas;
+using ProyectoTiempos.Controladores;
+using System.Timers;
+using System.Diagnostics;
+
 namespace ProyectoTiempos
 {
 
@@ -22,7 +26,12 @@ namespace ProyectoTiempos
         private FrmVerSorteos oVerSorteos;
         private FrmJugar oJugar;
         private Modelo.Persona person;
+        private Sorteo sorteo;
+        public Utils.Logica log;
+        public Boolean privilegios;
+
         public FrmPrincipal()
+        
         {
             InitializeComponent();
 
@@ -30,9 +39,13 @@ namespace ProyectoTiempos
         public FrmPrincipal(Boolean privilegios , Modelo.Persona person)
         {
             InitializeComponent();
+            this.privilegios = privilegios;
             configuracion.Visible = privilegios;
             this.person = person;
             lblJugador.Text = person.nombre + " " + person.apellido;
+            log = new Utils.Logica();
+            sorteo = new Sorteo();
+            sorteosVencidos();
         }
 
         private bool HandleForm(Form currentForm)
@@ -120,6 +133,41 @@ namespace ProyectoTiempos
             }
         }
 
+
+        private void sorteosVencidos()
+        {
+            int cont = 0;
+            Boolean vencidos = false;
+            List<Modelo.Sorteo> sorteos = log.listaSorteos();
+
+            for (int i = 0; i <sorteos.Count; i++)
+            {
+                if (sorteos[i].fecha.CompareTo(DateTime.Now) == -1)
+                {
+                    if (sorteos[i].estado)
+                    {
+                        cont++;
+                        int id = Convert.ToInt32(sorteos[i].id);
+                        string descripcion = sorteos[i].descripcion;
+                        DateTime fecha = Convert.ToDateTime(sorteos[i].fecha);
+                        Boolean estado = false;
+                        string codigo = sorteos[i].codigo;
+                        sorteo.Update(id, descripcion, fecha, estado, codigo);
+                        vencidos = true;
+                    }
+                 
+                }
+            }
+            if (vencidos)
+            {
+                if (privilegios == true)
+                {
+                    MessageBox.Show("Hay sorteos ya caducados Favor revisar y premiar los sorteos" + "\nSorteos Caducados: " + cont);
+                }
+            }
+            
+        }
+
         private void FrmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -133,6 +181,11 @@ namespace ProyectoTiempos
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Nombre: "+person.nombre+"\nApellido: " + person.apellido + "\nCorreo: " + person.correo);
+        }
+
+        private void timerValidacion_Tick(object sender, EventArgs e)
+        {
+            sorteosVencidos();
         }
     }
 }
