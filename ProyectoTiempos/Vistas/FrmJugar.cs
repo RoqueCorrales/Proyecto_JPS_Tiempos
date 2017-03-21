@@ -1,4 +1,5 @@
 ﻿using ProyectoTiempos.Controladores;
+using ProyectoTiempos.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,7 @@ namespace ProyectoTiempos.Vistas
         private int id_sorteo;
         private Apuesta apuesta;
         private Casa casa;
-
+        private Logica log;
 
 
 
@@ -30,7 +31,8 @@ namespace ProyectoTiempos.Vistas
             InitializeComponent();
             sorteo = new Sorteo();
             result = new DataTable();
-            cargarCombo();
+            log = new Logica();
+            cbSorteo.DataSource = log.cargarComboxSorteosNoPremiados();
             apuesta = new Apuesta();
             casa = new Casa();
 
@@ -40,30 +42,13 @@ namespace ProyectoTiempos.Vistas
             InitializeComponent();
             sorteo = new Sorteo();
             result = new DataTable();
-            cargarCombo();
+            log = new Logica();
+            cbSorteo.DataSource = log.cargarComboxSorteosNoPremiados();
             this.persona = persona;
             apuesta = new Apuesta();
             casa = new Casa();
         }
-        public ComboBox cargarCombo()
-        {
-            result = this.sorteo.SelectSorteosEstadoTrue();
-
-            for (int i = 0; i < result.Rows.Count; i++)
-            {
-
-                cbSorteo.Items.Add(result.Rows[i]["codigo"]);
-
-
-            }
-            if (this.sorteo.isError)
-            {
-                MessageBox.Show(this.sorteo.errorDescription);
-
-            }
-
-            return cbSorteo;
-        }
+       
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {

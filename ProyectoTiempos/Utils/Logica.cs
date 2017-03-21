@@ -21,11 +21,12 @@ namespace ProyectoTiempos.Utils
         }
 
 
-        public ComboBox cargarCombo()
+        public List<string> cargarCombo()
         {
             DataTable result = new DataTable();
-            ComboBox combo = new ComboBox();
+            
             result = this.sorteo.SelectCodigo();
+            List<string> lista = new List<string>();
             if (this.sorteo.isError)
             {
                 this.isError = true;
@@ -33,11 +34,11 @@ namespace ProyectoTiempos.Utils
             }
             for (int i = 0; i < result.Rows.Count; i++)
             {
-                combo.Items.Add(result.Rows[i]["codigo"]);
+              lista.Add(result.Rows[i]["codigo"].ToString());
             }
 
 
-            return combo;
+            return lista;
             }
 
 
@@ -69,43 +70,54 @@ namespace ProyectoTiempos.Utils
         }
 
 
-        public ComboBox cargarComboxSorteosNoPremiados()
+        public List<String> cargarComboxSorteosNoPremiados()
         {
+
             DataTable todos = new DataTable();
             DataTable resultPremiados = new DataTable();
-            ComboBox combo = new ComboBox();
-            todos= this.sorteo.SelectSorteosEstadoTrue();
-            resultPremiados = this.sorPre.Select();
 
+            todos = sorteo.SelectSorteosEstadoTrue();
+            resultPremiados = sorPre.Select();
+            List<string> lista = new List<string>();
+            
+
+            for (int i = 0; i < todos.Rows.Count; i++)
+            {
+                string a = (todos.Rows[i]["codigo"]).ToString();
+                lista.Add(a);
+            }
+
+            for (int j = 0; j < resultPremiados.Rows.Count; j++)
+            {
+                string a = resultPremiados.Rows[j]["codigo_sorteo"].ToString();
+                if (lista.Contains(a))
+                {
+                    lista.Remove(a);
+                }
+            }
+            return lista;
+
+
+        }
+        public List<string>  cargarComboEstadoTrue()
+        {
+            DataTable result = new DataTable();
+            result = this.sorteo.SelectSorteosEstadoTrue();
+            List<string> lista = new List<string>();
             if (this.sorteo.isError)
             {
                 this.isError = true;
                 this.errorDescription = this.sorteo.errorDescription;
             }
-            if ( this.sorPre.isError)
+            for (int i = 0; i < result.Rows.Count; i++)
             {
-                this.isError = true;
-                this.errorDescription = this.sorPre.errorDescription;
-            }
-            for (int i = 0; i < todos.Rows.Count; i++)
-            {
-                string a = (todos.Rows[i]["codigo"]).ToString();
-                for (int j = 0; j < resultPremiados.Rows.Count; j++)
-                {
-                    if (!resultPremiados.Rows[j]["codigo_sorteo"].ToString().Equals(a))
-                    {
-                        combo.Items.Add(a);
-                    }
-                }
-            }
-            
+                
+              lista.Add(result.Rows[i]["codigo"].ToString());
 
 
-            return combo;
+            }
+            return lista;
         }
-
-
-
     }
     }
 
