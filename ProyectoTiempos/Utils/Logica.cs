@@ -14,10 +14,12 @@ namespace ProyectoTiempos.Utils
     {
         private Sorteo sorteo;
         private SorteoPremiado sorPre;
+       private  List<Modelo.Sorteo> lista;
         public Logica()
         {
             sorteo = new Sorteo();
             sorPre = new SorteoPremiado();
+            lista = new List<Modelo.Sorteo>();
         }
 
 
@@ -117,6 +119,38 @@ namespace ProyectoTiempos.Utils
 
             }
             return lista;
+        }
+
+
+        public List<Modelo.Sorteo> listaSorteos()
+        {
+            
+             lista = new List<Modelo.Sorteo>();
+            DataTable result = new DataTable();
+            result = this.sorteo.SelectCodigo();
+
+            for (int i = 0; i < result.Rows.Count; i++)
+            {
+                Modelo.Sorteo s = new Modelo.Sorteo();
+                s.fecha = Convert.ToDateTime(result.Rows[i]["fecha"]);
+                s.estado = Convert.ToBoolean(result.Rows[i]["estado"]);
+                s.descripcion = result.Rows[i]["descripcion"].ToString();
+                s.id= Convert.ToInt32(result.Rows[i]["id"]);
+                s.codigo = (result.Rows[i]["codigo"].ToString());
+
+                lista.Add(s);
+            }
+
+            return lista; 
+          
+        }
+
+        public Modelo.Sorteo buscarInfoSorteo(string codigo)
+        {
+            Modelo.Sorteo s = new Modelo.Sorteo();
+           
+
+            return s;
         }
     }
     }

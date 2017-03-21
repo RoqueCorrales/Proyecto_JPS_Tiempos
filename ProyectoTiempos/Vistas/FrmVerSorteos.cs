@@ -29,7 +29,8 @@ namespace ProyectoTiempos.Vistas
       
         public void cargarCombo()
         {
-            cbSorteo.DataSource = log.cargarCombo();
+            cbSorteo.DisplayMember = "codigo";
+            cbSorteo.DataSource = log.listaSorteos();
             if (this.sorteo.isError)
             {
                 MessageBox.Show(this.sorteo.errorDescription);
@@ -37,6 +38,15 @@ namespace ProyectoTiempos.Vistas
             }
 
           
+        }
+
+        private void cbSorteo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Modelo.Sorteo s = new Modelo.Sorteo();
+            s = (Modelo.Sorteo)cbSorteo.SelectedItem;
+            lblCodigo.Text = s.codigo;
+            lblFecha.Text = s.fecha.ToString();
+
         }
     }
 }

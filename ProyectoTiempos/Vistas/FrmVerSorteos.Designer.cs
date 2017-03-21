@@ -31,10 +31,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblFechaSorteo = new System.Windows.Forms.Label();
-            this.lblNumeros = new System.Windows.Forms.Label();
             this.lblNumeroSorteo = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.cbSorteo = new System.Windows.Forms.ComboBox();
+            this.lblCodigo = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,12 +49,13 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblFecha);
+            this.panel1.Controls.Add(this.lblCodigo);
             this.panel1.Controls.Add(this.lblFechaSorteo);
-            this.panel1.Controls.Add(this.lblNumeros);
             this.panel1.Controls.Add(this.lblNumeroSorteo);
             this.panel1.Location = new System.Drawing.Point(143, 69);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(241, 247);
+            this.panel1.Size = new System.Drawing.Size(241, 140);
             this.panel1.TabIndex = 1;
             // 
             // lblFechaSorteo
@@ -66,15 +67,6 @@
             this.lblFechaSorteo.TabIndex = 6;
             this.lblFechaSorteo.Text = "Fecha";
             // 
-            // lblNumeros
-            // 
-            this.lblNumeros.AutoSize = true;
-            this.lblNumeros.Location = new System.Drawing.Point(3, 157);
-            this.lblNumeros.Name = "lblNumeros";
-            this.lblNumeros.Size = new System.Drawing.Size(73, 17);
-            this.lblNumeros.TabIndex = 4;
-            this.lblNumeros.Text = "lblPremios";
-            // 
             // lblNumeroSorteo
             // 
             this.lblNumeroSorteo.AutoSize = true;
@@ -84,15 +76,6 @@
             this.lblNumeroSorteo.TabIndex = 0;
             this.lblNumeroSorteo.Text = "Numero Sorteo";
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(371, 25);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
             // cbSorteo
             // 
             this.cbSorteo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -101,6 +84,23 @@
             this.cbSorteo.Name = "cbSorteo";
             this.cbSorteo.Size = new System.Drawing.Size(121, 24);
             this.cbSorteo.TabIndex = 3;
+            this.cbSorteo.SelectedIndexChanged += new System.EventHandler(this.cbSorteo_SelectedIndexChanged);
+            // 
+            // lblCodigo
+            // 
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Location = new System.Drawing.Point(113, 14);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(0, 17);
+            this.lblCodigo.TabIndex = 7;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(113, 88);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(0, 17);
+            this.lblFecha.TabIndex = 8;
             // 
             // FrmVerSorteos
             // 
@@ -108,7 +108,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(512, 339);
             this.Controls.Add(this.cbSorteo);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Name = "FrmVerSorteos";
@@ -125,9 +124,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblFechaSorteo;
-        private System.Windows.Forms.Label lblNumeros;
         private System.Windows.Forms.Label lblNumeroSorteo;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.ComboBox cbSorteo;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label lblCodigo;
     }
 }
