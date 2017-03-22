@@ -59,7 +59,7 @@ namespace ProyectoTiempos.Modelo
         }
         public DataTable SelectApuesta(int id)
         {
-            DataTable result = Program.da.SqlQuery("select * from apuesta where id = '" + id + "'", new Dictionary<string, object>());
+            DataTable result = Program.da.SqlQuery("select * from apuesta where id_sorteo = '" + id + "'", new Dictionary<string, object>());
             if (Program.da.isError)
             {
                 this.isError = true;

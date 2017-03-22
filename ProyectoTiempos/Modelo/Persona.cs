@@ -83,7 +83,7 @@ namespace ProyectoTiempos.Modelo
         public DataTable SelectPorId(int id)
         {
 
-            DataTable result = Program.da.SqlQuery("select * from persona where correo = '" + id + "'", new Dictionary<string, object>());
+            DataTable result = Program.da.SqlQuery("select * from persona where id = '" + id + "'", new Dictionary<string, object>());
             if (Program.da.isError)
             {
                 this.isError = true;
