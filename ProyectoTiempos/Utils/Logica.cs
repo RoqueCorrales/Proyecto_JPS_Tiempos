@@ -84,7 +84,7 @@ namespace ProyectoTiempos.Utils
             DataTable todos = new DataTable();
             DataTable resultPremiados = new DataTable();
 
-            todos = sorteo.SelectSorteosEstadoFalse();
+            todos = sorteo.SelectSorteosEstadoTrue();
             resultPremiados = sorPre.Select();
             List<string> lista = new List<string>();
 
