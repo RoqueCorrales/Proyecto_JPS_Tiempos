@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DBAccess;
+using System.Data;
+
 namespace ProyectoTiempos.Controladores
 {
     class Apuesta : ErrorHandler
@@ -21,9 +23,21 @@ namespace ProyectoTiempos.Controladores
             this.apuesta.Insert();
             if (this.apuesta.isError)
             {
-    this.isError = true;
-    this.errorDescription = this.apuesta.errorDescription;
+            this.isError = true;
+            this.errorDescription = this.apuesta.errorDescription;
                }
+        }
+        public DataTable SelectApuesta(int id)
+        {
+            DataTable result = new DataTable();
+            result = new DataTable();
+            result = this.apuesta.SelectApuesta(id);
+            if (this.apuesta.isError)
+            {
+                this.isError = true;
+                this.errorDescription = this.apuesta.errorDescription;
+            }
+            return result;
         }
 
 

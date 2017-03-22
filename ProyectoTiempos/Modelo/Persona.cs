@@ -16,6 +16,7 @@ namespace ProyectoTiempos.Modelo
         public string cedula { get; set; }
         public string contrasenna { get; set; }
         public string correo { get; set; }
+        public Boolean privilegios { get; set; }
 
         public Persona()
         {
@@ -79,7 +80,17 @@ namespace ProyectoTiempos.Modelo
             return result;
         }
 
+        public DataTable SelectPorId(int id)
+        {
 
+            DataTable result = Program.da.SqlQuery("select * from persona where correo = '" + id + "'", new Dictionary<string, object>());
+            if (Program.da.isError)
+            {
+                this.isError = true;
+                this.errorDescription = Program.da.errorDescription;
+            }
+            return result;
+        }
 
 
 

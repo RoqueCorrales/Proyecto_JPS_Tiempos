@@ -41,7 +41,17 @@ namespace ProyectoTiempos.Controlador
             return result;
         }
 
-       
+        public DataTable SelectPorId(int id)
+        {
+            DataTable result = new DataTable();
+            result = this.persona.SelectPorId(id);
+            if (this.persona.isError)
+            {
+                this.isError = true;
+                this.errorDescription = this.persona.errorDescription;
+            }
+            return result;
+        }
 
 
     }
