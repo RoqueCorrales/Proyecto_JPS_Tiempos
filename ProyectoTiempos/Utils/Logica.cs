@@ -181,9 +181,12 @@ namespace ProyectoTiempos.Utils
             s = buscarInfoSorteo(codigoSorteo);
             DataTable result = new DataTable();
             result = apuesta.SelectApuesta(s.id);
-            Modelo.Apuesta ap = new Modelo.Apuesta();
+            
             for (int i = 0; i < result.Rows.Count; i++)
             {
+
+                Modelo.Apuesta ap = new Modelo.Apuesta();
+
                 ap.id = Convert.ToInt32(result.Rows[i]["id"]);
                 ap.id_persona = Convert.ToInt32(result.Rows[i]["id_persona"]);
                 ap.id_sorteo = Convert.ToInt32(result.Rows[i]["id_sorteo"]);
