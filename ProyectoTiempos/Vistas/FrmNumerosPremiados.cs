@@ -42,6 +42,7 @@ namespace ProyectoTiempos.Vistas
             int numDos = Convert.ToInt32(cbSegundo.SelectedItem.ToString());
             int numTres =Convert.ToInt32(cbTercero.SelectedItem.ToString());
             sorPre.Insert(sorteo, numUno, numDos, numTres, id);
+            log.informacionPersonaConNumero(sorteo, numUno, numDos, numTres);
 
             if (this.sorteo.isError)
             {
@@ -54,7 +55,7 @@ namespace ProyectoTiempos.Vistas
 
         public void refrecar()
         {
-            cbSorteo.Items.Clear();
+            
 
             cbSorteo.Text = "";
             cbPrimero.SelectedIndex = -1;

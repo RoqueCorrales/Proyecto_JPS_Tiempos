@@ -5,7 +5,7 @@ using System.Data;
 
 namespace ProyectoTiempos.Modelo
 {
-    class Apuesta : ErrorHandler
+    public class Apuesta : ErrorHandler
     {
 
         public int id { set; get; }
@@ -50,6 +50,16 @@ namespace ProyectoTiempos.Modelo
         public DataTable Select()
         {
             DataTable result = Program.da.SqlQuery("select * from apuesta;", new Dictionary<string, object>());
+            if (Program.da.isError)
+            {
+                this.isError = true;
+                this.errorDescription = Program.da.errorDescription;
+            }
+            return result;
+        }
+        public DataTable SelectApuesta(int id)
+        {
+            DataTable result = Program.da.SqlQuery("select * from apuesta where id = '" + id + "'", new Dictionary<string, object>());
             if (Program.da.isError)
             {
                 this.isError = true;
