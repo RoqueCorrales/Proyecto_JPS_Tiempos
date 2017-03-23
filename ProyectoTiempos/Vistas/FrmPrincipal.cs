@@ -186,6 +186,8 @@ namespace ProyectoTiempos
         private void timerValidacion_Tick(object sender, EventArgs e)
         {
             sorteosVencidos();
+            
+        }
         }
     }
-}
+
