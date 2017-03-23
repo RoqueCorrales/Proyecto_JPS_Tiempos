@@ -20,11 +20,21 @@ namespace ProyectoTiempos
         {
             InitializeComponent();
             persona = new Persona();
+            CifrarContrasenha();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void CifrarContrasenha()
+        {
+            txtContrasenna.Text = "";
+            txtContrasennaConfirm.Text = "";
+            txtContrasennaConfirm.PasswordChar = '*';
+            txtContrasenna.PasswordChar = '*';
+            txtContrasenna.MaxLength = 15;
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
