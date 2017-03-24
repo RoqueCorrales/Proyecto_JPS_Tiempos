@@ -19,6 +19,7 @@ namespace ProyectoTiempos.Vistas
         private DataTable result;
         private string codigo;
         private int id_sorteo;
+        private DateTime fecha;
         private Apuesta apuesta;
         private Casa casa;
         private Logica log;
@@ -55,36 +56,12 @@ namespace ProyectoTiempos.Vistas
         {
             if (validarMonto() > 0)
             {
-                if (validarMonto() > 0)
-                {
 
-                    int numero = Convert.ToInt32(cbNumero.SelectedItem.ToString());
-                    double monto = validarMonto();
                     apuesta.Insert(persona.id, id_sorteo, monto, numero);
                     modificacionCasa();
                     txtMontoApuesta.Text = "";
                     cbNumero.SelectedIndex = -1;
                     MessageBox.Show("Apuesta Realizada");
-                    if (!validarFecha())
-                    {
-                        apuesta.Insert(persona.id, id_sorteo, monto, numero);
-                        modificacionCasa();
-                        txtMontoApuesta.Text = "";
-                        cbNumero.SelectedIndex = -1;
-                        MessageBox.Show("Apuesta Realizada");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Problema. Fecha Vencida");
-                        return;
-                    }
-
-                }
-                else
-                {
-                    MessageBox.Show("Dinero invalido");
-                    MessageBox.Show("Problema. Dinero no valido ");
-                }
 
 
             }
@@ -104,6 +81,13 @@ namespace ProyectoTiempos.Vistas
             Object selectedItem = cbSorteo.SelectedItem;
             codigo = selectedItem.ToString();
             buscarID();
+        }
+        public Boolean validarFecha()
+        {
+            if(fecha.CompareTo(DateTime.Now) == -1){
+                return true;
+            }
+            return false;
         }
 
         public Boolean validarFecha()
