@@ -22,6 +22,7 @@ namespace ProyectoTiempos.Vistas
         private Apuesta apuesta;
         private Casa casa;
         private Logica log;
+        private DateTime fecha;
 
 
 
@@ -48,25 +49,45 @@ namespace ProyectoTiempos.Vistas
             apuesta = new Apuesta();
             casa = new Casa();
         }
-       
+
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (validarMonto() > 0)
             {
-                int numero = Convert.ToInt32(cbNumero.SelectedItem.ToString());
-                double monto = validarMonto();
-                apuesta.Insert(persona.id, id_sorteo, monto, numero);
-                modificacionCasa();
-                txtMontoApuesta.Text ="";
-                cbNumero.SelectedIndex = -1;
-                MessageBox.Show("Apuesta Realizada");
-            }
-            else
-            {
-                MessageBox.Show("Dinero invalido");
-            }
+                if (validarMonto() > 0)
+                {
 
+                    int numero = Convert.ToInt32(cbNumero.SelectedItem.ToString());
+                    double monto = validarMonto();
+                    apuesta.Insert(persona.id, id_sorteo, monto, numero);
+                    modificacionCasa();
+                    txtMontoApuesta.Text = "";
+                    cbNumero.SelectedIndex = -1;
+                    MessageBox.Show("Apuesta Realizada");
+                    if (!validarFecha())
+                    {
+                        apuesta.Insert(persona.id, id_sorteo, monto, numero);
+                        modificacionCasa();
+                        txtMontoApuesta.Text = "";
+                        cbNumero.SelectedIndex = -1;
+                        MessageBox.Show("Apuesta Realizada");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Problema. Fecha Vencida");
+                        return;
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Dinero invalido");
+                    MessageBox.Show("Problema. Dinero no valido ");
+                }
+
+
+            }
         }
 
         public void buscarID()
@@ -75,6 +96,7 @@ namespace ProyectoTiempos.Vistas
             DataRow row = result.Rows[0];
             string id = row["id"].ToString();
             this.id_sorteo = Convert.ToInt32(id);
+            this.fecha = Convert.ToDateTime(row["fecha"]);
         }
 
         private void cbSorteo_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,7 +106,15 @@ namespace ProyectoTiempos.Vistas
             buscarID();
         }
 
-        private double validarMonto()
+        public Boolean validarFecha()
+        {
+           if(fecha.CompareTo(DateTime.Now) == -1){
+               return true;
+           }
+            return false;
+        }
+
+    private double validarMonto()
         {
             double monto = 0;
             try
