@@ -65,6 +65,7 @@
     <Compile Include="Modelo\SorteoPremiado.cs" />
     <Compile Include="Utils\Contrasenna.cs" />
     <Compile Include="Utils\Logica.cs" />
+    <Compile Include="Utils\LogicaCasaNoPierde.cs" />
     <Compile Include="Utils\Notificacion.cs" />
     <Compile Include="Utils\Serial.cs" />
     <Compile Include="Controladores\Sorteo.cs" />

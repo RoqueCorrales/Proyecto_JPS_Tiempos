@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace ProyectoTiempos.Utils
 {
-    class LogicaCasaNoPierde
-    {
+
     }
 }
